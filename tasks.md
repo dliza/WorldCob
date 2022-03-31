@@ -136,15 +136,16 @@ yarn build
 
 # Tasks of WorldCob
 ```sh
+[x] BZ-35 is_autoplay in content library
+[x] BZ-35 is_autoplay modal
+[] ~
+[] ~BZ-45 Hybrid registration with credential creation ~ new table checking
 [] Open Room Representatives (Change text in Click action)
-[] # BZ-45 Hybrid registration with credential creation ~ new table checking
 [] BZ-36 ~image ~video ~text ~click action)
 [] Landing Page ~3 slider versions and replace the main banner
 [] Modified Modal ~ booths ~ Enable autoplay -> not show in item option
 [] Element Autoplay -> Content Library
 [] Modal Video Element Autoplay
-[] BZ-35 is_autoplay in content library
-[] 
 ```
 ##### [BZ-35] is_autoplay in content library
 ```sh
