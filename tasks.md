@@ -64,6 +64,9 @@ php artisan key:generate
 ```sh
 php artisan migrate
 ```
+```sh
+php artisan ensure-db-state:is-loaded
+```
 
 
 ##### Generate Super Admin
@@ -138,7 +141,7 @@ yarn build
 ```sh
 [x] BZ-35 is_autoplay in content library
 [x] BZ-35 is_autoplay modal
-[] ~
+[] BZ-36 Inmediate pop-up
 [] ~BZ-45 Hybrid registration with credential creation ~ new table checking
 [] Open Room Representatives (Change text in Click action)
 [] BZ-36 ~image ~video ~text ~click action)
@@ -153,15 +156,33 @@ yarn build
 # a migration was added to add the is_autoplay field to the content_library_element table
 ```
 ```sh
+# Backend
 ContentLibraryElementsAdminController > generalElementInputs ~ is_autoplay
 ```
 ```sh
-# url's
+# Frontend - url's
 'Youtube': https://www.youtube.com/embed/DMqbXKqlrfA
 'Vimeo': https://vimeo.com/607608089
+```
+
+##### BZ-36 Inmediate pop up
+```sh
+# added an first_entry field to the virtual_rooms table
+# a migration was added to add the first_entry field to the virtual_room table
+
+```
+```sh
+
 ```
 
 ##### [BZ-45] Hybrid registration with credential creation
 ```sh
 # definir dia lunes
+```
+##### [BZ-44] Desarrollar otra tabla pivot para soporte En - Es
+```sh
+relacionad con la tabla users and events
+1.- Crear tabla
+2.- setear y migrar la tabla
+datahelpers.js
 ```
