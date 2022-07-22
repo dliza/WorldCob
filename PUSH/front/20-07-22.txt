@@ -1,0 +1,84 @@
+0.- es.json, en.json
+
+1.- [BZ-13] Notifications
+	- New
+		- NotificactionsEvent.vue
+		- EventNotifications.js 
+	- WebSocket
+		- notificationsQueries.js
+			- eventUserNotification
+		
+2.- Change $router.push 
+	- PreEventRegister.vue -> add payload -> slug: this.registry.slug
+		- PreEventModal.vue -> '/event/'+payload.slug
+	- RegistryRegister.vue -> '/event/'+this.slug
+
+3.- Reordenar lista de chats
+	- Edit ChatHome.vue -> data() => newData: [], methods: sortUsers()
+	- EventService -> getUsersChat()
+	- events.js -> getEventUsers() -> return users
+
+4.- Personalización de gafetes - Añadir Bloque de Certificados y Credeneciales
+	- RegistriesCredentialsIndex.vue
+	- RegistriesCertificatesIndex.vue
+	- RegistriesShowHome.vue
+		- {certificates, credentials}
+	- admin.router.js
+		- add
+			- RegistriesCredentialsIndex
+			- RegistriesCertificatesIndex
+	- RegistriesSettingModal.vue
+		- Remove ConfigurationPhotocheckModal.vue
+	- Formato de impresion corregido
+	- UserCredential.vue 
+		-> CredentialCard (mostrar siempre y cuando haya una credencial creada)
+	- ColorInput.vue
+		-> new Prop (isFilled)
+
+5.- [BZ-39] Click action a mensajes directos
+	- ClickableTypeKeys.js
+		- add -> open_user_chat
+	- Clickable.js
+		- ClickableBase -> user_id
+	- ClickableFormPartial.vue
+		-> add UserAutocomplete
+	- RenderlessClickableHandle.vue -> users:(state), (open_user_chat)
+
+6.- Escaneo de QR entre participantes
+	- UserProfileCards.vue
+		-> ModQRScannerModal
+		-> methods: addContactQR()
+
+7.- Acciones usuarios en bloque (Attendees)
+	- RegistriesActionsUsers.js
+	- registries.js
+		- updateTicket
+		- updatedTicketUser
+		- deleteUsers
+	- RegistriesParticipantsTable.vue
+		- Add
+			- v-if (isMod or !isMod)
+			- actionsAttendes
+			- activeSelectClass
+			- TicketAutocomplete
+			- applyChanges
+			- v-data-table -> :show-select
+			- methods: messageNot(), onClearClicked()
+
+8.- Identificacion de participantes como presencial
+	- EventContainer
+		- Se modifico los la barra solo se mostrara icono y contador incluido un tooltip
+		- NotificationsEvent
+		- ChatWrapper (ref="chatRef")
+		- apollo -> eventUserNotification: {}
+		- activeUsersHybrid
+		- userTicket -> validacion
+		- remove style .bz-notification-box
+
+9.- Poner alerta de girar celular por detras de botonos de chat y menu
+	- EventContainerFlipOverlay.vue -> z-index="40"
+
+
+
+
+

@@ -1,0 +1,30 @@
+cambiar logica de linkear sala -> hardcore
+
+no deje importar mas de 145 users
+
+pagar mediante la plataforma y elegiar el tipo de participacion que van a tener
+
+en el registro aumentar un campo mas opcional
+
+
+casilla de confirmacion en el registro,
+
+virtual por default 
+
+si en caso quiera ir presencial marcar check 
+-> enviar invitacion de confirmación al evento hybrid
+
+validacion de imprimir etiqueta
+4x6
+
+escanear qr para agregarlo en tus contacto
+validar la salida del evento,
+
+qr link para enviarlo a seccion de preguntas
+
+https://event.on24.com/interface/registration/autoreg/index.html?eventid=3807549&sessionid=1&key=F2B37E29F237C60863B6EFB965213FAD&email=jmoran@worldcob.org
+
+representante capturar qr y guardarlo en tu lista para luego contactarlo
+
+
+

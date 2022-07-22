@@ -1,0 +1,21 @@
+-> RegistryTicket
+-> RegistryTicketLocale
+
+save RegistryTicket -> foreign RegistryTicketLocale
+
+RegistryTicket tendra la misma logica que registries y registry_forms
+
+-> Settings Registries
+	-> MultiClass Event -> 
+		- title 
+		- description -> Habilita la funcionalidad de multiclase y asocialo a una sala 
+		-> switch
+			- modal para añadir clases
+-> Plataforma
+	-> Seccion
+		-> Asociar a tu clase un lobby
+
+-> Virtual Room
+	-> opcion
+		-> Asociar a un evento
+			-> que tipo de clase tendra la sala ( VIP / GOLD / PLATINIUM )

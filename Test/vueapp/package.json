@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "qrcanvas-vue": "2",
     "share-button-links": "^2.2.3",
     "vue": "^2.6.14",
+    "vue-html-to-paper": "^1.4.4",
     "vue-share-buttons": "^1.1.1"
   },
   "devDependencies": {

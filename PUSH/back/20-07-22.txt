@@ -1,0 +1,41 @@
+0.- Router -> tenant.php
+	- registries/{registry}/actions-users
+
+1.- [BZ-13] Notifications - Escaneo de QR entre participantes
+	- EmitUserNotifications.php
+	- NotificationsUserAction.php
+	- CreateEventConnectionActionController.php
+		- NotificationsUserAction.php
+	- DeleteNotificationsController.php
+	- NotificationsController.php
+	- ReadOrUnReadNotificationsController.php
+	- FrontNotifications.php
+	- redis-pubsub.php -> event_user_notification
+		
+3.- Reordenar lista de chats
+	- GetUsersActionController.php
+		- with('messages')
+	- ConstantsEventController.php
+		- with('messages')
+	- User.php
+		- message(): HasOne
+	- migrates
+		- table: clickables -> user_id	
+
+5.- [BZ-39] Click action a mensajes directos
+	- UpdateOrCreateClickableAction.php
+		- add -> ClickActionType::OpenUserChat
+	- ClickActionType.php
+		- OpenUserChat
+	- enums.php en/es
+		- open_user_chat
+
+7.- Acciones usuarios en bloque (Attendees)
+	- RegistryActionsUserDeleteController.php
+	- RegistryTicketUserStoreController.php -> $element['id']
+
+8.- Identificacion de participantes como presencial
+	- GetUsersActionController.php
+		- with('attendees.checkinsOne')
+	- Attendee.php
+		- checkinsOne
