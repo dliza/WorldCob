@@ -1,0 +1,13 @@
+validar check-in si el evento no es hybrid
+-> reporte de landing = al reporte de salas
+-> Modulo de metricas
+-> Bloque de metrica de landing igual al reporte de salas
+	-> cuantas visitas ha tenido el login y registro
+	-> visitas y usuarios unicos
+-> Photobooth -> Bloque elementos
+	-> lo que se pueda hacer categorizar 
+	-> saber cual de las fotos fueron mas usadas
+	-> si es cualquiera de las categorias
+-> Metrica retencion en la pagina
+-> Quitar
+	-> Tamaño de pantallas

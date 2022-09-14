@@ -1,0 +1,22 @@
+ui de añadir clase
+
+clase en label de ingles o español
+
+registry_ticket
+crear clase registry_ticket_locale
+
+un key padre e hijos label
+
+asociar un evento a la sala y el ticket
+
+registry_id a registry_ticket_locale
+
+is_lobby -> registry_ticket_id
+
+config
+ui aparte 
+idioma en y es
+
+mantener 
+tabs para las navegacion
+relacion de 1 a muchos

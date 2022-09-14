@@ -1,0 +1,90 @@
+<?php
+
+namespace App\Http\Controllers\Api\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Registry;
+use App\Models\RegistryRoom;
+use App\Models\RegistryTicket;
+use App\Models\RegistryTicketVirtualRoomPivot;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+
+class StoreRegistryTicketController extends Controller
+{
+    public function __invoke(Request $request, Registry $registry)
+    {
+        $uuids = collect($request->registry_ticket)->pluck('uuid');
+
+        $registry->registry_ticket()
+            ->whereNotIn('uuid', $uuids)
+            ->where('language_id', $request->language_id)
+            ->delete();
+
+        $registry_ticket = collect($request->registry_ticket)
+            ->mapInto(Collection::class)
+            ->map(function (Collection $element, $key) use ($request, $registry) {
+                $eventRegistryTicket = DB::transaction(function () use ($element, $key, $registry) {
+                    return tap(
+                        RegistryRoom::updateOrCreate(
+                            [
+                                'registry_id' => $registry->id,
+                                'virtual_room_id' => $element['virtual_room_id'],
+                            ],
+                            array_merge(
+                                $element->only(
+                                    'is_lobby'
+                                )->toArray()
+                            )
+                        ),
+                        function () use ($element, $key, $registry) {
+                            $ticketItem = RegistryTicket::updateOrCreate(
+                                [
+                                    'registry_id' => $registry->id,
+                                    'language_id' => $element['language_id'],
+                                    'uuid' => $element['uuid']
+                                ],
+                                array_merge(
+                                    $element->only(
+                                        'ticket_label_key'
+                                    )->toArray(),
+                                    [
+                                        'order' => $key
+                                    ]
+                                )
+                            );
+                            RegistryTicketVirtualRoomPivot::updateOrCreate(
+                                [
+                                    'registry_ticket_id' => $ticketItem->id,
+                                ],
+                                array_merge(
+                                    $element->only(
+                                        'virtual_room_id'
+                                    )->toArray()
+                                )
+                            );
+                        }
+                    );
+                });
+                return $eventRegistryTicket;
+            });
+
+        return response(
+            [
+                'data' => $registry_ticket,
+            ],
+            201
+        );
+    }
+}
+
+
+a mas clases de usuarios
+asignar clase
+asignar usuario a un registro
+campana de notificacion, algun chat,
+añadir tarjeta qr, en la notificaciones
+
+chat grupal para conversar
+palabras mas usadas en los chats
