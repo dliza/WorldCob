@@ -1,7 +1,0 @@
-
-1.- [BZ-13] Notifications 
-	- WebSocket
-		- NotificationsResolver.ts
-			- eventUserNotification
-		- TopicKeys.ts
-			- event_user_notification
